@@ -12,7 +12,13 @@ class Products extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset('assets/food.jpg'),
-          Text(products[index])
+          Text(products[index]),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(child: Text('Details'), onPressed: () {})
+            ],
+          )
         ],
       ),
     );
@@ -24,9 +30,9 @@ class Products extends StatelessWidget {
       productCards = ListView.builder(
         itemBuilder: _buildProductItem,
         itemCount: products.length,
-      ); 
+      );
     } else {
-      productCards = Center( 
+      productCards = Center(
         child: Text('No products found. Please add some.'),
       );
     }
