@@ -31,7 +31,7 @@ class Products extends StatelessWidget {
       );
     }
 
-    return productCard;
+    return productCards;
   }
 
   @override
