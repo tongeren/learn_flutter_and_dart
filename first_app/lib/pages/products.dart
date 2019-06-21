@@ -9,7 +9,7 @@ class ProductsPage extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(
         child: Column(
-          children: <Widget>[
+          children: <Widget>[ 
             AppBar(
               automaticallyImplyLeading: false,
               title: Text('Choose'),),
@@ -17,7 +17,7 @@ class ProductsPage extends StatelessWidget {
               title: Text('Manage Products'),
               onTap: () {
                 Navigator.push(
-                  context,
+                  context, 
                   MaterialPageRoute(
                     builder: (BuildContext context) => ProductAdminPage()),
                 );

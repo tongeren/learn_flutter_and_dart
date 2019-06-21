@@ -1,25 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../admin.dart';
+import './products.dart';
+
 class ProductAdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[ 
+            AppBar(
+              automaticallyImplyLeading: false,
+              title: Text('Choose'),),
+            ListTile(
+              title: Text('Products'),
+              onTap: () {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => ProductsPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),    
       appBar: AppBar(
         title: Text('Manage Products'),
       ),
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text('Cakes'),
-              Text('Chocolates'),
-              Text('Jellies'),
-            ],
-          ),
-        ),
-      ),
+      body: Admin(),
     );
   }
 }
+
