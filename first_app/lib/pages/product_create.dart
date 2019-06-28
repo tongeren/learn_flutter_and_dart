@@ -9,8 +9,8 @@ class ProductCreatePage extends StatefulWidget {
 
 class _ProductCreatePageState extends State<ProductCreatePage> {
   String titleValue = '';
-  String description = '';
-  double price = 0.0;
+  String descriptionValue = '';
+  double priceValue = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +20,21 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
            titleValue = value;
          });
       }),
-      Text(titleValue),
       TextField(
         keyboardType: TextInputType.multiline,
-        maxLines: null, 
+        maxLines: 4, 
         onChanged: (String value) {
          setState(() {
-           description = value;
+           descriptionValue = value;
          });
       }),
-      Text(description),
       TextField(
         keyboardType: TextInputType.numberWithOptions(),
         onChanged: (String value) {
          setState(() {
-           price = double.parse(value);
+           priceValue = double.parse(value);
          });
       }),
-      Text(price.toStringAsFixed(2)),
     ],);
   }
 }
