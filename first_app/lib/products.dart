@@ -42,7 +42,7 @@ class Products extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey, width: 1.0),
                 borderRadius: BorderRadius.circular(4.0)),
-            child: Text('Union Square, San Fransisco'), 
+            child: Text('Union Square, San Fransisco'),
           ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
