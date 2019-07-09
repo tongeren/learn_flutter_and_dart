@@ -8,36 +8,8 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  String emailAddressValue = '';
-  String passwordValue = '';
-
-  _showDataDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Authentication Data'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text('Email Address: $emailAddressValue'),
-                Text('Password: $passwordValue'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('CONTINUE'),
-              onPressed: () {
-                Navigator.pop(context); // dispose of the dialog
-                Navigator.pushReplacementNamed(context, '/products');
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  String _emailValue;
+  String _passwordValue;
 
   @override
   Widget build(BuildContext context) {
@@ -45,15 +17,16 @@ class _AuthPageState extends State<AuthPage> {
       appBar: AppBar(
         title: Text('Login'),
       ),
-      body: Center(
-        child: Column(
+      body: Container(
+        margin: EdgeInsets.all(10.0),
+        child: ListView(
           children: <Widget>[
             TextField(
-                decoration: InputDecoration(labelText: 'Email Address'),
+                decoration: InputDecoration(labelText: 'E-Mail'),
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (String value) {
                   setState(() {
-                    emailAddressValue = value;
+                    _emailValue = value;
                   });
                 }),
             TextField(
@@ -61,14 +34,18 @@ class _AuthPageState extends State<AuthPage> {
                 decoration: InputDecoration(labelText: 'Password'),
                 onChanged: (String value) {
                   setState(() {
-                    passwordValue = value;
+                    _passwordValue = value;
                   });
                 }),
             SizedBox(height: 10.0),
             RaisedButton(
+              color: Theme.of(context).primaryColor,
+              textColor: Colors.white,
               child: Text('LOGIN'),
               onPressed: () {
-                _showDataDialog(context);
+                print(_emailValue);
+                print(_passwordValue);
+                Navigator.pushReplacementNamed(context, '/products');
               },
             ),
           ],
